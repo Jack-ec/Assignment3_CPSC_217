@@ -23,6 +23,7 @@ def get_reply(sentence, lines_of_code, database):
                 return database[i]
         if j != 1:
             return database["None of the above"]
+        #needs fixes
 
 
 
