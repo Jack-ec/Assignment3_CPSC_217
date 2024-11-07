@@ -16,8 +16,9 @@ def get_reply(sentence, lines_of_code, database):
     elif sentence == "run":
         return runcode.run(lines_of_code)
     else:
+        sentence = sentence.lower()
         for i in keys_list:
-            if i in sentence.lower().split():
+            if i in sentence.split():
                 j += j
                 return database[i]
         if j != 1:
