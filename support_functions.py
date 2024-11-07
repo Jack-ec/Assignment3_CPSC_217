@@ -11,13 +11,13 @@ def get_reply(sentence, lines_of_code, database):
     keys = database.keys()
     keys_list = list(keys)
     j = 0
-    if sentence == "code" or lines_of_code != []:
+    if sentence == "code" or lines_of_code != [] and sentence != "run":
         return ""
     elif sentence == "run":
         return runcode.run(lines_of_code)
     else:
         for i in keys_list:
-            if " " + i + " " in sentence.lower():
+            if i in sentence.lower().split():
                 j += j
                 return database[i]
         if j != 1:
