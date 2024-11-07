@@ -17,13 +17,18 @@ def get_reply(sentence, lines_of_code, database):
         return runcode.run(lines_of_code)
     else:
         sentence = sentence.lower()
+        sentence_no_punc = ""
+        for char in sentence:
+            # Check if the character is not a punctuation mark (using a simple list of punctuation marks)
+            if char not in ".,!?;:'\"()[]{}<>-_/$@#%^&*":
+                sentence_no_punc += char
+
         for i in keys_list:
-            if i in sentence.split():
+            if i in sentence_no_punc.split():
                 j += j
                 return database[i]
         if j != 1:
             return database["None of the above"]
-        #needs fixes
 
 
 
