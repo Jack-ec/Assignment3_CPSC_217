@@ -1,5 +1,4 @@
-from contextlib import nullcontext
-
+import runcode
 #Jack Chidlaw: Greet user, include name in greeting if it is given.
 def get_greetings(name):
     if name == "":
@@ -11,9 +10,20 @@ def get_greetings(name):
 def get_reply(sentence, lines_of_code, database):
     keys = database.keys()
     keys_list = list(keys)
-    for i in keys_list:
-        if i in sentence:
-            return database[i]
+    j = 0
+    if sentence == "code" or lines_of_code != []:
+        return ""
+    elif sentence == "run":
+        return runcode.run(lines_of_code)
+    else:
+        for i in keys_list:
+            if " " + i + " " in sentence.lower():
+                j += j
+                return database[i]
+        if j != 1:
+            return database["None of the above"]
+
+
 
 
 
