@@ -11,10 +11,13 @@ def get_reply(sentence, lines_of_code, database):
     keys = database.keys()
     keys_list = list(keys)
     j = 0
+    #Jack Chidlaw: watch for code keywords and return appropriate output
     if sentence == "code" or lines_of_code != [] and sentence != "run":
         return ""
     elif sentence == "run":
         return runcode.run(lines_of_code)
+    #Jack Chidlaw: else parse through sentence, add each character that isn't punctuation to new string then split result
+    #into list of whole words. Than look through list for keywords and return the keywoard response
     else:
         sentence = sentence.lower()
         sentence_no_punc = ""
