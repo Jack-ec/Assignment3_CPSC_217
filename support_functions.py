@@ -17,7 +17,7 @@ def get_reply(sentence, lines_of_code, database):
     elif sentence == "run":
         return runcode.run(lines_of_code)
     #Jack Chidlaw: else parse through sentence, add each character that isn't punctuation to new string then split result
-    #into list of whole words. Than look through list for keywords and return the keywoard response
+    #into list of whole words. Then, look through list for keywords and return the keywoard response
     else:
         sentence = sentence.lower()
         sentence_no_punc = ""
